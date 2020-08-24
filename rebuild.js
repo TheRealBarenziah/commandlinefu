@@ -1,11 +1,11 @@
-const fs = require("fs");
-const path = require("path");
-const rimraf = require("rimraf");
+const existsSync = require("fs").existsSync;
+const join = require("path").join;
+const rimraf = require("rimraf").sync;
 
 const rebuild = () => {
   // if './lib' exists, delete it
-  if (fs.existsSync(path.join(__dirname, "lib"))) {
-    rimraf.sync(path.join(__dirname, "lib"));
+  if (existsSync(join(__dirname, "lib"))) {
+    rimraf(join(__dirname, "lib"));
   }
   return null; // *Headpat V8*
 };
