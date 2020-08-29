@@ -1,13 +1,13 @@
 {
-  "name": "imgbb-uploader",
-  "version": "1.1.0",
-  "description": "Lightweight module to upload images through Imgbb API.",
+  "name": "commandlinefu",
+  "version": "0.0.1",
+  "description": "Easily use commandlinefu.com API with nodejs",
   "main": "lib/cjs/index.js",
   "browser": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/index.d.ts",
   "dependencies": {
-    "fs": "0.0.1-security"
+    "axios": "^0.20.0"
   },
   "scripts": {
     "test": "jest --config jestconfig.json",
@@ -45,20 +45,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TheRealBarenziah/imgbb-uploader.git"
+    "url": "git+https://github.com/TheRealBarenziah/commandlinefu.git"
   },
   "keywords": [
-    "imgbb",
-    "imgbb-uploader",
-    "image upload",
-    "picture upload"
+    "commandlinefu",
+    "node",
+    "commandlinefu api"
   ],
   "author": "TheRealBarenziah",
   "license": "SEE LICENSE IN TARGARYEN_UNLICENSE",
   "bugs": {
-    "url": "https://github.com/TheRealBarenziah/imgbb-uploader/issues"
+    "url": "https://github.com/TheRealBarenziah/commandlinefu/issues"
   },
-  "homepage": "https://github.com/TheRealBarenziah/imgbb-uploader#readme",
+  "homepage": "https://github.com/TheRealBarenziah/commandlinefu#readme",
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
