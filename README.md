@@ -1,18 +1,29 @@
 # commandlinefu
-Simple module to easily get commandlinefu.com snippets in JSON format.  
+
+Simple **nodejs** module to easily get commandlinefu.com snippets in JSON format.  
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Build Status](https://travis-ci.org/TheRealBarenziah/commandlinefu.svg?branch=master)](https://travis-ci.org/TheRealBarenziah/commandlinefu)
 
 # Install
-`npm install commandlinefu`  
+
+`npm install commandlinefu`
 
 # Use
-With nodejs: 
+
+With nodejs:
+
 ```javascript
 // clfu.js
 const clfu = require("commandlinefu);
 
-const responseObject = await clfu();
-console.log(responseObject);
-/* 'node clfu.js' output :
+clfu()
+  .then(res => console.log(res))
+  .catch(e => e)
+```
+
+`node clfu.js` output:
+
+```javascript
 {
   "id": "5427",
   "command": "curl ifconfig.me",
@@ -20,24 +31,27 @@ console.log(responseObject);
   "votes": "262",
   "url": "http://www.commandlinefu.com/commands/view/5427/get-your-external-ip-address"
 }
-*/
 ```
-This object will be referred as `responseObject` from now on.  
+
+This object will be referred as `responseObject` from now on.
 
 # Features
-By default (no argument) it will returns a random `responseObject`.  
-**You can pass a *string* as argument, in which case it will return an Array[]** of responseObject{}.  
-Available arguments:  
--  "popular"  returns an Array of popular `responseObject` (which tbh doesn't change much over time)  
--  "search:$var"  returns an Array of `responseObject` related to `$var`  
 
-Example of dynamic search:  
+By default (no argument) it will returns a random `responseObject`.  
+**You can pass a _string_ as argument, in which case it will return an Array[]** of responseObject{}.  
+Available arguments:
+
+- "popular" returns an Array of popular `responseObject` (which tbh doesn't change much over time)
+- "search:\$var" returns an Array of `responseObject` related to `$var`
+
+Example of dynamic search:
+
 ```javascript
-const userInput = "ssh"; // here you got user input as string  
+const userInput = "ssh"; // here you got user input as string
 
 clfu(`search:${userInput}`)
-  .then(res => console.log(res))
-  .catch(e => e);
+  .then((res) => console.log(res))
+  .catch((e) => e);
 /* Outputs an array like : 
 [
     {
@@ -66,6 +80,6 @@ clfu(`search:${userInput}`)
 ```
 
 If you're looking for CLI instead of a reusable function, it may be worth checking [this repo](https://github.com/nire0510/clfu).  
-At least it helped me decipher commandlinefu.com API endpoints, so thank you [nire0510](https://github.com/nire0510) :)  
+At least it helped me decipher commandlinefu.com API endpoints, so thank you [nire0510](https://github.com/nire0510) :)
 
-[CHANGELOG](https://github.com/TheRealBarenziah/commandlinefu/blob/master/CHANGELOG.md)  
+[CHANGELOG](https://github.com/TheRealBarenziah/commandlinefu/blob/master/CHANGELOG.md)

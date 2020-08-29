@@ -1,6 +1,18 @@
 import performRequest from "./performRequests";
 import IResponseObject from "./IResponseObject";
 
+/**
+ * Get snippets from commandlinefu.com in JSON format
+ *
+ * @param {string} arg is optional. Allowed values: "popular", "search:$var" (where $var is a variable)
+ * @returns {Promise.<IResponseObject>}
+ *    A promise. Access your data using `.then` as shown in [the README](https://github.com/TheRealBarenziah/commandlinefu#use)
+ * @example
+ *     commandlinefu()
+ *       .then(res => console.log(res))
+ *       .catch(e => e);
+ */
+
 const commandlinefu = async (
   arg: string | void,
 ): Promise<IResponseObject | IResponseObject[] | Error> => {
