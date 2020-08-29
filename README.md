@@ -1,6 +1,7 @@
 # commandlinefu
 
 Simple **nodejs** module to easily get commandlinefu.com snippets in JSON format.  
+[![https://nodei.co/npm/commandlinefu.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/commandlinefu.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/commandlinefu)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Build Status](https://travis-ci.org/TheRealBarenziah/commandlinefu.svg?branch=master)](https://travis-ci.org/TheRealBarenziah/commandlinefu)
 
@@ -14,11 +15,11 @@ With nodejs:
 
 ```javascript
 // clfu.js
-const clfu = require("commandlinefu);
+const clfu = require("commandlinefu");
 
 clfu()
-  .then(res => console.log(res))
-  .catch(e => e)
+  .then((res) => console.log(res))
+  .catch((e) => e);
 ```
 
 `node clfu.js` output:
@@ -80,6 +81,6 @@ clfu(`search:${userInput}`)
 ```
 
 If you're looking for CLI instead of a reusable function, it may be worth checking [this repo](https://github.com/nire0510/clfu).  
-At least it helped me decipher commandlinefu.com API endpoints, so thank you [nire0510](https://github.com/nire0510) :)
+At least it helped me decipher commandlinefu.com API endpoints, so thank you nire0510 :)
 
 [CHANGELOG](https://github.com/TheRealBarenziah/commandlinefu/blob/master/CHANGELOG.md)
