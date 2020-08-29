@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "node rebuild.js && node updateExport.js es5 && tsc -p tsconfig-cjs.json && node updateExport.js es6 && tsc -p tsconfig.json",
+    "build": "node rebuild.js && node updateExport.js es5 && tsc -p tsconfig-cjs.json && node updateExport.js es6",
     "build:cjs": "node rebuild.js && tsc -p tsconfig-cjs.json",
     "build:esm": "node rebuild.js && tsc -p tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
