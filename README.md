@@ -80,7 +80,77 @@ clfu(`search:${userInput}`)
 */
 ```
 
-If you're looking for CLI instead of a reusable function, it may be worth checking [this repo](https://github.com/nire0510/clfu).  
+# Discord bot
+
+I originally wrote this for my [discord bot](https://github.com/TheRealBarenziah/jdr9000). If you want to use this module for your own, feel free to check my (dirty) implementation :
+
+- [here](https://github.com/TheRealBarenziah/jdr9000/blob/master/commands/clfu.js#L9) is where I take user input & call my module to fetch stuff accordingly
+- [here](https://github.com/TheRealBarenziah/jdr9000/blob/master/utils/format.js#L18) are my format functions. Note that I divide the response into several chunks to get around Discord limitations (maximum 2000 characters for a message).
+
+# CLI
+
+Nodejs make it easy to wrap this module into a custom CLI that fits your need. In terminal :
+
+```bash
+mkdir myCli
+cd ./myCli
+npm init # you can spam 'return' key for now
+npm i commandlinefu # grab this module
+touch index.js
+```
+
+You can copy/paste this into your `index.js` :
+
+```javascript
+const clfu = require("commandlinefu");
+
+const clfu = async () => {
+  if (!process.argv.slice(2)[0]) {
+    return await clfu().then((res) => console.log(res.command).catch((e) => e));
+  } else if (process.argv.slice(2)[0]) {
+    return await clfu(process.argv.slice(2)[0])
+      .then((res) => console.log(res))
+      .catch((e) => e);
+  } else return new Error("Oopsie, it seems you forgot to pass as argument !");
+};
+
+clfu();
+```
+
+This is it! Now back into your terminal:
+
+```bash
+node index.js # calling clfu without argument
+ps auxw | awk '/(apache|httpd)/{print"strace -F -p " $2}' | sh # this is 'res.command' printed in stdout
+node index.js search:ssh # calling clfu with "search:ssh" argument, we get an array like we're supposed to
+[
+  {
+    id: '24887',
+    command: 'ssh -L8888:localhost:80 -i nov15a.pem ubuntu@123.21.167.60',
+    summary: 'port forwarding',
+    votes: '1',
+    url: 'http://www.commandlinefu.com/commands/view/24887/port-forwarding'
+  },
+  {
+    id: '24879',
+    command: "rsync -e 'ssh -i /root/my.pem' -avz /mysql/db/data_summary.* ec2-1-2-4-9.compute-1.amazonaws.com:/mysql/test/",
+    summary: 'rsync using pem file',
+    votes: '0',
+    url: 'http://www.commandlinefu.com/commands/view/24879/rsync-using-pem-file'
+  },
+  {...more objects}
+]
+```
+
+This is the basic principle. You can parse & do your stuff with those arrays in the `else if` block of aforementioned `index.js` file.
+
+# More
+
+If you're looking for out-of-the-box CLI instead of a reusable function, it may be worth checking [this repo](https://github.com/nire0510/clfu).  
 At least it helped me decipher commandlinefu.com API endpoints, so thank you nire0510 :)
 
-[CHANGELOG](https://github.com/TheRealBarenziah/commandlinefu/blob/master/CHANGELOG.md)
+# Todo
+
+- supporting .mjs
+- supporting browsers
+  [CHANGELOG](https://github.com/TheRealBarenziah/commandlinefu/blob/master/CHANGELOG.md)
