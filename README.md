@@ -89,7 +89,7 @@ I originally wrote this for my [discord bot](https://github.com/TheRealBarenziah
 
 # CLI
 
-Nodejs make it easy to wrap this module into a custom CLI that fits your need. In terminal :
+Nodejs make it easy to wrap functions into a custom CLI suiting your needs. In terminal :
 
 ```bash
 mkdir myCli
@@ -99,7 +99,7 @@ npm i commandlinefu # grab this module
 touch index.js
 ```
 
-You can copy/paste this into your `index.js` :
+This is the content of your `index.js` :
 
 ```javascript
 const clfu = require("commandlinefu");
@@ -107,8 +107,8 @@ const clfu = require("commandlinefu");
 const clfu = async () => {
   if (!process.argv.slice(2)[0]) {
     return await clfu()
-    .then(res => console.log(res.command)
-    .catch(e => console.error(e)));
+    .then(res => console.log(res.command))
+    .catch(e => console.error(e));
   }
   else if (process.argv.slice(2)[0]) {
     return await clfu(process.argv.slice(2)[0])
@@ -119,12 +119,12 @@ const clfu = async () => {
 clfu();
 ```
 
-This is it! Now back into your terminal:
+That's it! Now back into your terminal:
 
 ```bash
 node index.js # calling clfu without argument
 ps auxw | awk '/(apache|httpd)/{print"strace -F -p " $2}' | sh # this is 'res.command' printed in stdout
-node index.js search:ssh # calling clfu with "search:ssh" argument, we get an array like we're supposed to
+node index.js search:ssh # calling clfu with "search:ssh" argument, we get an array like we're supposed to :
 [
   {
     id: '24887',
@@ -145,7 +145,7 @@ node index.js search:ssh # calling clfu with "search:ssh" argument, we get an ar
 ```
 
 This is the basic principle. You can parse & do your stuff with those arrays in the `else if` block of aforementioned `index.js` file.  
-If you never used `process.argv` before, [this should help get you started](https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/)
+If you never used `process.argv` before, [this read should get you started](https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/)
 
 # More
 
