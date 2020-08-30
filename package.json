@@ -1,6 +1,6 @@
 {
   "name": "commandlinefu",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "Easily use commandlinefu.com API with nodejs",
   "main": "lib/cjs/index.js",
   "browser": "lib/cjs/index.js",
