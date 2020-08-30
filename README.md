@@ -104,7 +104,7 @@ This is the content of your `index.js` :
 ```javascript
 const clfu = require("commandlinefu");
 
-const clfu = async () => {
+const commandlinefu = async () => {
   if (!process.argv.slice(2)[0]) {
     return await clfu()
     .then(res => console.log(res.command))
@@ -116,7 +116,7 @@ const clfu = async () => {
       .catch(e => console.error(e));
 };
 
-clfu();
+commandlinefu();
 ```
 
 That's it! Now back into your terminal:
