@@ -106,12 +106,14 @@ const clfu = require("commandlinefu");
 
 const clfu = async () => {
   if (!process.argv.slice(2)[0]) {
-    return await clfu().then((res) => console.log(res.command).catch((e) => e));
-  } else if (process.argv.slice(2)[0]) {
+    return await clfu()
+    .then(res => console.log(res.command)
+    .catch(e => console.error(e)));
+  }
+  else if (process.argv.slice(2)[0]) {
     return await clfu(process.argv.slice(2)[0])
-      .then((res) => console.log(res))
-      .catch((e) => e);
-  } else return new Error("Oopsie, it seems you forgot to pass as argument !");
+      .then(res => console.log(res))
+      .catch(e => console.error(e));
 };
 
 clfu();
@@ -142,7 +144,8 @@ node index.js search:ssh # calling clfu with "search:ssh" argument, we get an ar
 ]
 ```
 
-This is the basic principle. You can parse & do your stuff with those arrays in the `else if` block of aforementioned `index.js` file.
+This is the basic principle. You can parse & do your stuff with those arrays in the `else if` block of aforementioned `index.js` file.  
+If you never used `process.argv` before, [this should help get you started](https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/)
 
 # More
 
