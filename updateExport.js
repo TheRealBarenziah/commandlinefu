@@ -9,8 +9,7 @@ const updateExport = () => {
     exportHelper({ mode: "es6", path: "src/index.ts", silent: true }).then(
       (res) => res,
     );
-  } else
-    throw "Oopsie, it seems you forgot to pass either 'es5' or 'es6' as argument !";
+  }
 };
 
 updateExport();
