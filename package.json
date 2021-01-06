@@ -7,7 +7,7 @@
   "module": "lib/esm/index.js",
   "types": "lib/index.d.ts",
   "dependencies": {
-    "axios": "^0.20.0"
+    "axios": "^0.21.1"
   },
   "scripts": {
     "test": "jest --config jestconfig.json",
